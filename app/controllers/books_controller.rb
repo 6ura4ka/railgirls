@@ -26,7 +26,6 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-    @book.picture = Google::Search::Image.new(:query => (@book.name + " " + @book.author + " cover " + @book.published_on.year.to_s)).first.uri
 
     respond_to do |format|
       if @book.save
